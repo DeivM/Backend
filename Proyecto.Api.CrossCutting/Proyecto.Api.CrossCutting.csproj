@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Proyecto.Api.Application.Contracts\Proyecto.Api.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.Application\Proyecto.Api.Application.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.DataAccess.Contracts\Proyecto.Api.DataAccess.Contracts.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.DataAccess\Proyecto.Api.DataAccess.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.Application.Contracts\Proyecto.Api.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.Application\Proyecto.Api.Application.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.DataAccess.Contracts\Proyecto.Api.DataAccess.Contracts.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.DataAccess\Proyecto.Api.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

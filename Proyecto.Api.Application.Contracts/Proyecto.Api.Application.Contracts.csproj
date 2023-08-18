@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Proyecto.Api.Business\Proyecto.Api.Business.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.Business\Proyecto.Api.Business.csproj" />
+  </ItemGroup>
+
+</Project>

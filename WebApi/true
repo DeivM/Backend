@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi.Controllers.CatalogoSeguimientoController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.CatalogoSeguimientoController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.CatalogoSeguimientoController.Post(Proyecto.Api.Business.Request.CatalogoSeguimientoRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.CatalogoSeguimientoController.Update(System.Int32,Proyecto.Api.Business.Request.CatalogoSeguimientoRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.CatalogoSeguimientoController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.CitaController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.CitaController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.CitaController.Post(Proyecto.Api.Business.Request.CitaRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.CitaController.Update(System.Int32,Proyecto.Api.Business.Request.CitaRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.CitaController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.ErrorController.Error(System.Int32)">
+            <summary>
+            ERRORES
+            </summary>
+            <param name="code">codigo de error</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.EspecialidadeController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.EspecialidadeController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.EspecialidadeController.Post(Proyecto.Api.Business.Request.EspecialidadeRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.EspecialidadeController.Update(System.Int32,Proyecto.Api.Business.Request.EspecialidadeRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.EspecialidadeController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.HorarioController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.HorarioController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.HorarioController.Post(Proyecto.Api.Business.Request.HorarioRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.HorarioController.Update(System.Int32,Proyecto.Api.Business.Request.HorarioRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.HorarioController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.IndiceSeguimientoController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.IndiceSeguimientoController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.IndiceSeguimientoController.Post(Proyecto.Api.Business.Request.IndiceSeguimientoRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.IndiceSeguimientoController.Update(System.Int32,Proyecto.Api.Business.Request.IndiceSeguimientoRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.IndiceSeguimientoController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.LoginController.Login(Proyecto.Api.Business.Request.UsuarioRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MedicoController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.MedicoController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.MedicoController.Getlist(System.Int64)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.MedicoController.Post(Proyecto.Api.Business.Request.MedicoRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MedicoController.Update(System.Int32,Proyecto.Api.Business.Request.MedicoRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MedicoController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MedicosEspecialidadeController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.MedicosEspecialidadeController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.MedicosEspecialidadeController.Post(Proyecto.Api.Business.Request.MedicosEspecialidadeRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MedicosEspecialidadeController.Update(System.Int32,Proyecto.Api.Business.Request.MedicosEspecialidadeRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MedicosEspecialidadeController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MenuController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.MenuController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.MenuController.Post(Proyecto.Api.Business.Request.MenuRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MenuController.Update(System.Int32,Proyecto.Api.Business.Request.MenuRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MenuController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MenuPerfilController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.MenuPerfilController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.MenuPerfilController.Post(Proyecto.Api.Business.Request.MenuPerfilRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MenuPerfilController.Update(System.Int32,Proyecto.Api.Business.Request.MenuPerfilRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.MenuPerfilController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.PerfilController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.PerfilController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.PerfilController.Post(Proyecto.Api.Business.Request.PerfilRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.PerfilController.Update(System.Int32,Proyecto.Api.Business.Request.PerfilRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.PerfilController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.SeguimientoPacienteController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.SeguimientoPacienteController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.SeguimientoPacienteController.Post(Proyecto.Api.Business.Request.SeguimientoPacienteRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.SeguimientoPacienteController.Update(System.Int32,Proyecto.Api.Business.Request.SeguimientoPacienteRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.SeguimientoPacienteController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api para eliminar datos
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendente o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.Post(Proyecto.Api.Business.Request.UsuarioRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.UsuarioController.Update(System.Int32,Proyecto.Api.Business.Request.UsuarioRequest)">
+            <summary>
+            api para editar un data por su id
+            </summary>
+            <param name="id">id de la data que se desea editar</param>
+            <param name="data">Nuevos Data de la data</param>
+            <remarks>api para editar un data por su identificador</remarks>
+        </member>
+    </members>
+</doc>

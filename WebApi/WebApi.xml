@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi.Controllers.TipoIdentificacionController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos
+            </summary>
+            <param name="quantity">Fiitidad de elementos a obtener</param>
+            <param name="page">Número de página de resultados</param>
+            <param name="orderby">Campo por el que se desea ordenar</param>
+            <param name="ascdesc">ordena ascendete o descendente</param>
+            <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.TipoIdentificacionController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos por del formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.TipoIdentificacionController.Post(Proyecto.Api.Business.Request.TipoIdentificacionRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.TipoIdentificacionController.Update(System.Int32,Proyecto.Api.Business.Request.TipoIdentificacionRequest)">
+            <summary>
+            api para editar un dato por su id
+            </summary>
+            <param name="id">id del dato que se desea editar</param>
+            <param name="data">Nuevos datos del registro actualizar</param>
+            <remarks>api para editar por su identificador</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.TipoIdentificacionController.Delete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            api eliminar varios datos 
+            </summary>
+            <param name="ids">ids de los datos que se desean eliminar</param>
+            <remarks>api para eliminar varios items por su id</remarks>
+        </member>
+    </members>
+</doc>

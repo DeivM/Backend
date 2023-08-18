@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Proyecto.Api.Application.Contracts\Proyecto.Api.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.Business\Proyecto.Api.Business.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.DataAccess.Contracts\Proyecto.Api.DataAccess.Contracts.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.Application.Contracts\Proyecto.Api.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.Business\Proyecto.Api.Business.csproj" />
+    <ProjectReference Include="..\Proyecto.Api.DataAccess.Contracts\Proyecto.Api.DataAccess.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
