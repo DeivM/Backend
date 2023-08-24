@@ -85,6 +85,33 @@ namespace Proyecto.Api.DataAccess.Repositories
                 .ToListAsync();
             return result;
         }
+
+        //Retorna todos los datos que tiene la tabla, regresa siempre los dias primeros, ordenados por id principal
+        //quantity Fiitidad de datos que desea consultar
+        //page numero de paginas
+        //orderBy ordenaod por desc o asc
+        //orderType el campo de ordenamiento 
+        //searchText texto para realizar la busqueda
+        public async Task<List<SeguimientoPacienteModel>> GetAllById(int id)
+        {
+
+            var query = _controlHorarioContext.SeguimientoPaciente.Where(x=>x.UsuId==id)
+                .Select(x => new SeguimientoPacienteModel()
+            {
+                SepId = x.SepId,
+                CasId = x.CasId,
+                SepObservacion = x.SepObservacion,
+                SepFinalizar = x.SepFinalizar,
+                UsuId = x.UsuId,
+                CasNombre=x.Cas.CasNombre
+            });
+
+           return await query.ToListAsync();
+ 
+        }
+
+
+
         //Lista los datos para mostrar en un select
         public async Task<List<ListModel>> GetList()
         {

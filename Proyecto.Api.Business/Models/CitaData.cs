@@ -1,6 +1,7 @@
 ﻿
 using Proyecto.Api.Business.Models.List;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Proyecto.Api.Business.Models
 {
@@ -12,5 +13,6 @@ namespace Proyecto.Api.Business.Models
         public List<ListModel> Pacientes { get; set; }
         public List<ListModel> MedicosEspecialidad { get; set; }
         public List<ListModel> Citas { get; set; }
+        
     }
 }

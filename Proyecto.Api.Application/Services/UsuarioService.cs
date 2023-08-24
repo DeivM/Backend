@@ -151,6 +151,7 @@ namespace Proyecto.Api.Application.Services
             claims.Add(new Claim("idEmpresa", user.EmpId.ToString()));
             claims.Add(new Claim("idUsuario", user.UsuId.ToString()));
             claims.Add(new Claim("email", user.UsuEmail));
+            claims.Add(new Claim("PerId", user.PerId.ToString()));
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(

@@ -52,6 +52,12 @@
             <param name="ascdesc">ordena ascendente o descendente</param>
             <param name="search">filtra la búsqueda</param>
         </member>
+        <member name="M:WebApi.Controllers.CitaController.GetAllById">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
         <member name="M:WebApi.Controllers.CitaController.GetData(System.Int32)">
             <summary>
             api para obtener todos los datos para el formulario 
@@ -413,6 +419,12 @@
             <param name="orderby">Campo por el que se desea ordenar</param>
             <param name="ascdesc">ordena ascendente o descendente</param>
             <param name="search">filtra la búsqueda</param>
+        </member>
+        <member name="M:WebApi.Controllers.SeguimientoPacienteController.GetAllById">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
         </member>
         <member name="M:WebApi.Controllers.SeguimientoPacienteController.GetData(System.Int32)">
             <summary>

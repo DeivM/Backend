@@ -92,7 +92,14 @@ namespace Proyecto.Api.Application.Services
             return await _SeguimientoPacienteRepository.Delete(ids);
         }
 
-       
+        public async Task<List<SeguimientoPacienteModel>> GetAllById(int id)
+        {
+
+            return await _SeguimientoPacienteRepository.GetAllById(id);
+
+        }
+
+
 
     }
 }

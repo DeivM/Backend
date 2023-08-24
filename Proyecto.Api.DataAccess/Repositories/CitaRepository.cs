@@ -78,7 +78,7 @@ namespace Proyecto.Api.DataAccess.Repositories
         //orderBy ordenaod por desc o asc
         //orderType el campo de ordenamiento 
         //searchText texto para realizar la busqueda
-        public async Task<ListadoPaginadoModel<CitaModel>> GetAll(int quantity, int page, string orderBy, string orderType, string searchText)
+        public async Task<ListadoPaginadoModel<CitaModel>> GetAll(int quantity, int page, string orderBy, string orderType, string searchText, int perId, int usuId)
         {
             var result = new ListadoPaginadoModel<CitaModel>();
             var query = _controlHorarioContext.Cita.Select(x => new CitaModel()
@@ -108,6 +108,12 @@ namespace Proyecto.Api.DataAccess.Repositories
                       || x.UsuNombres.Contains(searchText)
                 );
             }
+            if (perId==2)
+            {
+                query = query.Where(x =>x.UsuId==usuId);
+            }
+
+
             // total de items
             result.FiitidadElementos = query.Count();
             // Ordenamiento y paginado
@@ -117,6 +123,40 @@ namespace Proyecto.Api.DataAccess.Repositories
                 .ToListAsync();
             return result;
         }
+
+        //Retorna todos los datos que tiene la tabla, regresa siempre los dias primeros, ordenados por id principal
+        //quantity Fiitidad de datos que desea consultar
+        //page numero de paginas
+        //orderBy ordenaod por desc o asc
+        //orderType el campo de ordenamiento 
+        //searchText texto para realizar la busqueda
+        public async Task<List<CitaModel>> GetAllById(int id)
+        {
+
+            var query = _controlHorarioContext.Cita.Where(x=>x.UsuId==id).OrderByDescending(x=>x.CitFechaAtencion.Value.Date).Select(x => new CitaModel()
+            {
+                CitId = x.CitId,
+                MesId = x.MesId,
+                CitFechaAtencion = x.CitFechaAtencion,
+                CitInicioAtencion = x.CitInicioAtencion,
+                CitFinAtencion = x.CitFinAtencion,
+                CitEstadoPaciente = x.CitEstadoPaciente,
+                CitObservaciones = x.CitObservaciones,
+                CitEstado = x.CitEstado,
+                UsuId = x.UsuId,
+                MedNombres = x.Mes.Med.MedNombres + x.Mes.Med.MedApellidos,
+                UsuNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
+                EspNombre = x.Mes.Esp.EspNombre
+
+            });
+
+          return await  query.ToListAsync();
+
+        }
+
+
+
+
         //Lista los datos para mostrar en un select
         public async Task<List<ListModel>> GetList()
         {

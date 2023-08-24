@@ -9,6 +9,8 @@ using Proyecto.Api.Application.Contracts.Services;
 using Proyecto.Api.Business.Request;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using System.Linq;
+using System;
 
 namespace WebApi.Controllers
 {
@@ -38,11 +40,33 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll( int quantity = 10, int page = 0, string orderby = "CitId", string ascdesc = "descending", string search = null)
         {
+            int PerId = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(c => c.Type == "PerId").Value);
+            int UsuId = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(c => c.Type == "idUsuario").Value);
             var resultado = new RespuestaModel<ListadoPaginadoModel<CitaModel>>
             {
-                Data = await _CitaService.GetAll(quantity, page, orderby, ascdesc, search)
+                Data = await _CitaService.GetAll(quantity, page, orderby, ascdesc, search, PerId, UsuId)
             };
             return Ok(resultado);
+        }
+
+
+        /// <summary>
+        /// api para obtener todos los datos para el formulario 
+        /// </summary>
+        /// <param name="id">id del dato que desea obtener</param>
+        [ProducesResponseType(200)]//Proceso exitoso
+        [ProducesResponseType(400)]//Error en los Data enviados
+        [ProducesResponseType(401)]//Token inválido
+        [ProducesResponseType(404)]//Datos no encontrado
+        [ProducesResponseType(500)]//Error del servido servidor                         
+        [ResponseType(typeof(RespuestaModel<CitaData>))]
+        [HttpGet]
+        [Route("GetAllById")]
+        public async Task<IActionResult> GetAllById()
+        {
+            int UsuId = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(c => c.Type == "idUsuario").Value);
+           return Ok(await _CitaService.GetAllById(UsuId));
+
         }
 
         /// <summary>

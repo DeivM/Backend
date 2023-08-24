@@ -20,6 +20,7 @@ namespace Proyecto.Api.Business.Models
         public string MedNombres { get; set; }
         public string UsuNombres { get; set; }
         public string EspNombre { get; set; }
+        public long PerId { get; set; }
 
     }
 }

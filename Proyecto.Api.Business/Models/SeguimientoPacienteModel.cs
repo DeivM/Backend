@@ -15,5 +15,8 @@ namespace Proyecto.Api.Business.Models
 
         public long CitId { get; set; }
 
+        public string CasNombre { get; set; }
+
+
     }
 }

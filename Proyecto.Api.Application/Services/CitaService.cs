@@ -109,7 +109,14 @@ namespace Proyecto.Api.Application.Services
             return await _CitaRepository.Delete(ids);
         }
 
-       
+        public async Task<List<CitaModel>> GetAllById(int id)
+        {
+            
+            return await _CitaRepository.GetAllById(id);
+
+        }
+
+
 
     }
 }

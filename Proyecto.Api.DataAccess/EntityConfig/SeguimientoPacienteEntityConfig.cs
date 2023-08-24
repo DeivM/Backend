@@ -23,7 +23,6 @@ namespace Proyecto.Api.DataAccess.EntityConfig
                 .HasColumnName("sep_finalizar");
 
             entity.Property(e => e.SepObservacion)
-                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("sep_observacion");
 

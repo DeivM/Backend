@@ -15,5 +15,8 @@ namespace Proyecto.Api.DataAccess.Contracts.Repositories
         Task<SeguimientoPacienteModel> Get(long id);
         Task<ListadoPaginadoModel<SeguimientoPacienteModel>> GetAll(int quantity, int page, string orderBy, string orderType, string searchText);
         Task<List<ListModel>> GetList();
+
+        Task<List<SeguimientoPacienteModel>> GetAllById(int id);
+       
     }
 }

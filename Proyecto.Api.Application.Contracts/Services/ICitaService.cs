@@ -20,6 +20,7 @@ namespace Proyecto.Api.Application.Contracts.Services
         /// <returns></returns>
         Task<long> Update(CitaRequest data);
         Task<long> Delete(List<long> ids);
+        Task<List<CitaModel>> GetAllById(int id);
 
     }
 }

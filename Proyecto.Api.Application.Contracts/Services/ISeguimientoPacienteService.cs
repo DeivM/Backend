@@ -21,5 +21,9 @@ namespace Proyecto.Api.Application.Contracts.Services
         Task<long> Update(SeguimientoPacienteRequest data);
         Task<long> Delete(List<long> ids);
 
+        Task<List<SeguimientoPacienteModel>> GetAllById(int id);
+        
+
+
     }
 }
