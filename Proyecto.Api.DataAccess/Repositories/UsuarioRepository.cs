@@ -147,6 +147,18 @@ namespace Proyecto.Api.DataAccess.Repositories
                 }).ToListAsync();
         }
 
+        //Lista los datos para mostrar en un select
+        public async Task<List<ListModel>> GetListById(int id)
+        {
+            return await _controlHorarioContext.Usuario.Where(x=>x.PerId==id)
+                .Select(x => new ListModel
+                {
+                    id = x.UsuId,
+                    Nombre = x.UsuNombres + x.UsuApellidos
+                }).ToListAsync();
+        }
+
+
 
         public async Task<List<ListModel>> GetList(long id)
         {
@@ -165,6 +177,23 @@ namespace Proyecto.Api.DataAccess.Repositories
         {
             await _controlHorarioContext.Usuario.AddAsync(entity);
             await _controlHorarioContext.SaveChangesAsync();
+            if (entity.PerId==2)
+            {
+                var medico = new Medico();
+                medico.MedId = entity.UsuId;
+                medico.MedNombres = entity.UsuNombres;
+                medico.MedApellidos = entity.UsuApellidos;
+                medico.MedCedula = entity.UsuCedula;
+                medico.MedDireccion = entity.UsuDireccion;
+                medico.MedCorreo = entity.UsuEmail;
+                medico.MedTelefono = entity.UsuTelefono;
+                medico.MedSexo = entity.UsuSexo;
+                await _controlHorarioContext.Medico.AddAsync(medico);
+                await _controlHorarioContext.SaveChangesAsync();
+            }
+
+
+
             return entity.UsuId;
         }
 
