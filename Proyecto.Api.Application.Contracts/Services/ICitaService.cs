@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Proyecto.Api.Business.Models;
@@ -10,7 +11,7 @@ namespace Proyecto.Api.Application.Contracts.Services
     {
         Task<bool> Exist(long id);
         Task<CitaModel> Get(long id);
-        Task<ListadoPaginadoModel<CitaModel>> GetAll(int quantity, int page, string orderBy, string orderType, string searchText);
+        Task<ListadoPaginadoModel<CitaModel>> GetAll(int quantity, int page, string orderBy, string orderType, string searchText, int PerId, int UsuId);
         Task<CitaData> GetData(long id);
         Task<long> Add(CitaRequest data);
         /// <summary>

@@ -147,6 +147,19 @@ namespace Proyecto.Api.DataAccess.Repositories
                 }).ToListAsync();
         }
 
+
+        public async Task<List<ListModel>> GetList(long id)
+        {
+            return await _controlHorarioContext.MedicosEspecialidade.Where(x => x.EspId == id)
+                .Select(x => new ListModel
+                {
+                    id = x.MesId,
+                    Nombre = x.Usu.UsuNombres + x.Usu.UsuNombres
+                }).ToListAsync();
+        }
+
+
+
         //registra los datos a la base
         public async Task<long> Add(Usuario entity)
         {

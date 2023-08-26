@@ -14,6 +14,6 @@ namespace Proyecto.Api.DataAccess.Contracts.Entities
         public TimeSpan? HorFinAtencion { get; set; }
         public short? HorEstado { get; set; }
 
-        public virtual Medico Med { get; set; }
+        public virtual Usuario Usu { get; set; }
     }
 }

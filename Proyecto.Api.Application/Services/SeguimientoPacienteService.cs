@@ -80,6 +80,13 @@ namespace Proyecto.Api.Application.Services
             return await _SeguimientoPacienteRepository.Add(_mapper.Map<SeguimientoPaciente>(data));
         }
 
+
+        //envia la informacion al repositorio para ingresar y regresa un long como exito
+        public async Task<long> Update(List<SeguimientoPacienteRequest> data)
+        {
+            return await _SeguimientoPacienteRepository.Update(data);
+        }
+
         //envia la informacion al repositorio para actualizar y regresa un long como exito
         public async Task<long> Update(SeguimientoPacienteRequest data)
         {

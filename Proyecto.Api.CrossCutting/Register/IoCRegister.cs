@@ -29,7 +29,6 @@ namespace Proyecto.Api.CrossCutting.Register
             services.AddTransient<IEspecialidadeService, EspecialidadeService>();
             services.AddTransient<IHorarioService, HorarioService>();
             services.AddTransient<IIndiceSeguimientoService, IndiceSeguimientoService>();
-            services.AddTransient<IMedicoService, MedicoService>();
             services.AddTransient<IMedicosEspecialidadeService, MedicosEspecialidadeService>();
             services.AddTransient<ISeguimientoPacienteService, SeguimientoPacienteService>();
 
@@ -56,7 +55,6 @@ namespace Proyecto.Api.CrossCutting.Register
             services.AddTransient<IEspecialidadeRepository, EspecialidadeRepository>();
             services.AddTransient<IHorarioRepository, HorarioRepository>();
             services.AddTransient<IIndiceSeguimientoRepository, IndiceSeguimientoRepository>();
-            services.AddTransient<IMedicoRepository, MedicoRepository>();
             services.AddTransient<IMedicosEspecialidadeRepository, MedicosEspecialidadeRepository>();
             services.AddTransient<ISeguimientoPacienteRepository, SeguimientoPacienteRepository>();
 

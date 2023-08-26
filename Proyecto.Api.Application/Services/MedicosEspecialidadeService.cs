@@ -18,12 +18,12 @@ namespace Proyecto.Api.Application.Services
     {
         private readonly IMedicosEspecialidadeRepository _MedicosEspecialidadeRepository;
         private readonly IMapper _mapper;
-        private readonly IMedicoService _medicoService;
+        private readonly IUsuarioService _medicoService;
         private readonly IEspecialidadeService _especialidadService;
 
         public MedicosEspecialidadeService(IMedicosEspecialidadeRepository MedicosEspecialidadeRepository,
             IMapper mapper,
-            IMedicoService medicoService,
+            IUsuarioService medicoService,
             IEspecialidadeService especialidadService
             )
         {

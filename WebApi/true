@@ -214,50 +214,6 @@
             <param name="data">Datos del nuevo registro</param>
             <remarks>api para crear un nuevo data</remarks>
         </member>
-        <member name="M:WebApi.Controllers.MedicoController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
-            <summary>
-            api para obtener todos los datos
-            </summary>
-            <param name="quantity">Fiitidad de elementos a obtener</param>
-            <param name="page">Número de página de resultados</param>
-            <param name="orderby">Campo por el que se desea ordenar</param>
-            <param name="ascdesc">ordena ascendente o descendente</param>
-            <param name="search">filtra la búsqueda</param>
-        </member>
-        <member name="M:WebApi.Controllers.MedicoController.GetData(System.Int32)">
-            <summary>
-            api para obtener todos los datos para el formulario 
-            </summary>
-            <param name="id">id del dato que desea obtener</param>
-        </member>
-        <member name="M:WebApi.Controllers.MedicoController.Getlist(System.Int64)">
-            <summary>
-            api para obtener todos los datos para el formulario 
-            </summary>
-            <param name="id">id del dato que desea obtener</param>
-        </member>
-        <member name="M:WebApi.Controllers.MedicoController.Post(Proyecto.Api.Business.Request.MedicoRequest)">
-            <summary>
-            api para crear un nuevo registro y retorna su identificador
-            </summary>
-            <param name="data">Datos del nuevo registro</param>
-            <remarks>api para crear un nuevo data</remarks>
-        </member>
-        <member name="M:WebApi.Controllers.MedicoController.Update(System.Int32,Proyecto.Api.Business.Request.MedicoRequest)">
-            <summary>
-            api para editar un data por su id
-            </summary>
-            <param name="id">id de la data que se desea editar</param>
-            <param name="data">Nuevos Data de la data</param>
-            <remarks>api para editar un data por su identificador</remarks>
-        </member>
-        <member name="M:WebApi.Controllers.MedicoController.Delete(System.Collections.Generic.List{System.Int64})">
-            <summary>
-            api para eliminar datos
-            </summary>
-            <param name="ids">ids de los datos que se desean eliminar</param>
-            <remarks>api para eliminar varios items por su id</remarks>
-        </member>
         <member name="M:WebApi.Controllers.MedicosEspecialidadeController.GetAll(System.Int32,System.Int32,System.String,System.String,System.String)">
             <summary>
             api para obtener todos los datos
@@ -433,6 +389,13 @@
             <param name="id">id del dato que desea obtener</param>
         </member>
         <member name="M:WebApi.Controllers.SeguimientoPacienteController.Post(Proyecto.Api.Business.Request.SeguimientoPacienteRequest)">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
+        <member name="M:WebApi.Controllers.SeguimientoPacienteController.PostList(System.Collections.Generic.List{Proyecto.Api.Business.Request.SeguimientoPacienteRequest})">
             <summary>
             api para crear un nuevo registro y retorna su identificador
             </summary>

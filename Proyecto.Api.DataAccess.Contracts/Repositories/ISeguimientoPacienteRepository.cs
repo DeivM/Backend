@@ -5,6 +5,7 @@ using Proyecto.Api.DataAccess.Contracts.Repositories;
 using Proyecto.Api.Business.Models;
 using Proyecto.Api.Business.Models.List;
 using Proyecto.Api.DataAccess.Contracts.Entities;
+using Proyecto.Api.Business.Request;
 
 namespace Proyecto.Api.DataAccess.Contracts.Repositories
 {
@@ -17,6 +18,10 @@ namespace Proyecto.Api.DataAccess.Contracts.Repositories
         Task<List<ListModel>> GetList();
 
         Task<List<SeguimientoPacienteModel>> GetAllById(int id);
-       
+
+        //registra los datos a la base
+        Task<long> Update(List<SeguimientoPacienteRequest> entity);
+
+
     }
 }

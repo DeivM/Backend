@@ -29,7 +29,7 @@ namespace Proyecto.Api.DataAccess.EntityConfig
 
             entity.Property(e => e.MedId).HasColumnName("med_id");
 
-            entity.HasOne(d => d.Med)
+            entity.HasOne(d => d.Usu)
                 .WithMany(p => p.Horarios)
                 .HasForeignKey(d => d.MedId)
                 .HasConstraintName("FK_horarios_medicos");

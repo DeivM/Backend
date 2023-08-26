@@ -24,6 +24,7 @@ namespace Proyecto.Api.Application.Contracts.Services
         Task<long> Delete(List<long> ids);
 
         Task<List<ListModel>> GetList();
+        Task<List<ListModel>> GetList(long id);
 
     }
 }

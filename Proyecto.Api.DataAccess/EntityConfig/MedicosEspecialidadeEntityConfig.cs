@@ -28,7 +28,7 @@ namespace Proyecto.Api.DataAccess.EntityConfig
                 .HasForeignKey(d => d.EspId)
                 .HasConstraintName("FK_medicos_especialidades_especialidades");
 
-            entity.HasOne(d => d.Med)
+            entity.HasOne(d => d.Usu)
                 .WithMany(p => p.MedicosEspecialidades)
                 .HasForeignKey(d => d.MedId)
                 .HasConstraintName("FK_medicos_especialidades_medicos");

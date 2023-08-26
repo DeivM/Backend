@@ -10,6 +10,8 @@ using Proyecto.Api.DataAccess.Contracts;
 using Proyecto.Api.DataAccess.Contracts.Repositories;
 using Proyecto.Api.DataAccess.Contracts.Entities;
 using Proyecto.Api.Business.Models.List;
+using Proyecto.Api.Business.Request;
+
 
 namespace Proyecto.Api.DataAccess.Repositories
 {
@@ -95,11 +97,12 @@ namespace Proyecto.Api.DataAccess.Repositories
         public async Task<List<SeguimientoPacienteModel>> GetAllById(int id)
         {
 
-            var query = _controlHorarioContext.SeguimientoPaciente.Where(x=>x.UsuId==id)
+            var query = _controlHorarioContext.SeguimientoPaciente.Where(x=>x.UsuId==id && x.Cit.CitEstado==1)
                 .Select(x => new SeguimientoPacienteModel()
             {
                 SepId = x.SepId,
                 CasId = x.CasId,
+                CitId = x.CitId,
                 SepObservacion = x.SepObservacion,
                 SepFinalizar = x.SepFinalizar,
                 UsuId = x.UsuId,
@@ -131,6 +134,45 @@ namespace Proyecto.Api.DataAccess.Repositories
             await _controlHorarioContext.SaveChangesAsync();
             return entity.SepId;
         }
+
+        //registra los datos a la base
+        public async Task<long> Update(List<SeguimientoPacienteRequest> entity)
+        {
+            using (var tran = _controlHorarioContext.Database.BeginTransaction())
+            {
+                SeguimientoPaciente SeguimientoPaciente = null;
+                try
+                {
+                    foreach (var item in entity)
+                    {
+                        SeguimientoPaciente = new SeguimientoPaciente();
+                        SeguimientoPaciente.SepId = item.SepId;
+                        SeguimientoPaciente.CasId = item.CasId;
+                        SeguimientoPaciente.SepObservacion=item.SepObservacion;
+                        SeguimientoPaciente.SepFinalizar=item.SepFinalizar;
+                        SeguimientoPaciente.UsuId=item.UsuId;
+                        SeguimientoPaciente.CitId = item.CitId;
+                        _controlHorarioContext.SeguimientoPaciente.Update(SeguimientoPaciente);
+                    }
+                    await _controlHorarioContext.SaveChangesAsync();
+                    var citId= entity.Select(x=>x.CitId).FirstOrDefault();
+                    var cita = new Cita();
+                    cita.CitId = citId;
+                    cita.CitEstado = 2;
+                    _controlHorarioContext.Cita.Attach(cita);
+                    _controlHorarioContext.Entry(cita).Property("CitEstado").IsModified = true;
+                    await _controlHorarioContext.SaveChangesAsync();
+                    await tran.CommitAsync();
+                    return 1;
+                }
+                catch (Exception e)
+                {
+                    await tran.RollbackAsync();
+                    throw new Exception(e.Message);
+                }
+            }
+        }
+
 
         //actaliza un dato 
         public async Task<long> Update(SeguimientoPaciente entity)

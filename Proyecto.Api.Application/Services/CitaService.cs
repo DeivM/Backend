@@ -18,7 +18,7 @@ namespace Proyecto.Api.Application.Services
     {
         private readonly ICitaRepository _CitaRepository;
         private readonly IMapper _mapper;
-        private readonly IMedicoService _medicoService;
+        private readonly IUsuarioService _medicoService;
         private readonly IUsuarioService _usuarioService;
         private readonly IEspecialidadeService _especialidadService;
         private readonly ICatalogoSeguimientoService _seguimientoService;
@@ -26,7 +26,7 @@ namespace Proyecto.Api.Application.Services
 
         public CitaService(ICitaRepository CitaRepository,
             IMapper mapper,
-            IMedicoService medicoService,
+            IUsuarioService medicoService,
             IUsuarioService usuarioService,
             IEspecialidadeService especialidadService,
             ICatalogoSeguimientoService seguimientoService
@@ -60,9 +60,9 @@ namespace Proyecto.Api.Application.Services
         //orderBy ordenaod por desc o asc
         //orderType el campo de ordenamiento 
         //searchText texto para realizar la busqueda
-        public async Task<ListadoPaginadoModel<CitaModel>> GetAll(int quantity, int page, string orderBy, string orderType, string searchText)
+        public async Task<ListadoPaginadoModel<CitaModel>> GetAll(int quantity, int page, string orderBy, string orderType, string searchText, int PerId, int UsuId)
         {
-            return await _CitaRepository.GetAll(quantity, page, orderBy, orderType, searchText);
+            return await _CitaRepository.GetAll(quantity, page, orderBy, orderType, searchText, PerId, UsuId);
         }
 
        
@@ -92,7 +92,8 @@ namespace Proyecto.Api.Application.Services
             if (await _CitaRepository.ValidarCitasHorario(data.MesId.Value, data.CitFechaAtencion.Value, data.CitInicioAtencion.Value, data.CitFinAtencion.Value)) throw new Exception(Mensajes.MedicoSinHorario());
             
             var id = await _CitaRepository.Add(_mapper.Map<Cita>(data));
-            
+
+            enviarMensajeWhatsApp(data.UsuId.Value, id);
 
             return id;
         }
@@ -116,6 +117,27 @@ namespace Proyecto.Api.Application.Services
 
         }
 
+       private async void enviarMensajeWhatsApp(long id, long citId)
+        {
+            var usuario = await _usuarioService.Get(id);
+            var cita = await _CitaRepository.Get(citId);
+            string cuerpo=string.Empty;
+            cuerpo = "hola "+usuario.UsuNombres +" "+usuario.UsuApellidos
+                +   " Reciba un cordial saludo de quienes conformamos SALUDSPC"
+                +"\n\n"
+                +"Le informamos que usted tiene uan cita con la siguiente información"
+                  + "\n\n"
+                  +"Especialidad "+cita.EspNombre +"\n\n"
+                  +"Médico "+cita.MedNombres +"\n\n"
+                  +"Fecha "+cita.CitFechaAtencion.Value.ToShortDateString()+"\n\n"
+                  +"Hora "+cita.CitInicioAtencion.Value.ToString() +"\n\n"
+                ;
+            var accountSid = "";
+            var authToke="";
+
+
+
+        }
 
 
     }

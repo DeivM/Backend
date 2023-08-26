@@ -21,7 +21,6 @@ namespace Proyecto.Api.DataAccess.Mappers
             CreateMap<EspecialidadeRequest, Especialidade>();
             CreateMap<HorarioRequest, Horario>();
             CreateMap<IndiceSeguimientoRequest, IndiceSeguimiento>();
-            CreateMap<MedicoRequest, Medico>();
             CreateMap<MedicosEspecialidadeRequest, MedicosEspecialidade>();
             CreateMap<SeguimientoPacienteRequest, SeguimientoPaciente>();
 

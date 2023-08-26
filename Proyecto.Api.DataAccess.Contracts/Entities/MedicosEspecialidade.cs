@@ -14,6 +14,6 @@ namespace Proyecto.Api.DataAccess.Contracts.Entities
 
         public virtual ICollection<Cita> Cita { get; set; }
         public virtual Especialidade Esp { get; set; }
-        public virtual Medico Med { get; set; }
+        public virtual Usuario Usu { get; set; }
     }
 }

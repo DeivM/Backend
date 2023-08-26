@@ -18,6 +18,6 @@ namespace Proyecto.Api.DataAccess.Contracts.Entities
 
         public virtual ICollection<Perfil> Perfils { get; set; }
         public virtual ICollection<Especialidade> Especialidades { get; set; }
-        public virtual ICollection<Medico> Medicos { get; set; }
+        public virtual ICollection<Usuario> Usuario { get; set; }
     }
 }

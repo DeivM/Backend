@@ -27,5 +27,6 @@ namespace Proyecto.Api.DataAccess.Contracts.Repositories
         /// <returns></returns>
         Task<bool> Exist(long id, string email);
         Task<List<ListModel>> GetList();
+        Task<List<ListModel>> GetList(long id);
     }
 }

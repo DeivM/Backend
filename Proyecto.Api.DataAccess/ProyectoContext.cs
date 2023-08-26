@@ -25,7 +25,6 @@ namespace Proyecto.Api.DataAccess
         public virtual DbSet<Especialidade> Especialidade { get; set; }
         public virtual DbSet<Horario> Horario { get; set; }
         public virtual DbSet<IndiceSeguimiento> IndiceSeguimiento { get; set; }
-        public virtual DbSet<Medico> Medico { get; set; }
         public virtual DbSet<MedicosEspecialidade> MedicosEspecialidade { get; set; }
         public virtual DbSet<SeguimientoPaciente> SeguimientoPaciente { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,7 +43,6 @@ namespace Proyecto.Api.DataAccess
             EspecialidadeEntityConfig.SetEntityBuilder(modelBuilder.Entity<Especialidade>());
             HorarioEntityConfig.SetEntityBuilder(modelBuilder.Entity<Horario>());
             IndiceSeguimientoEntityConfig.SetEntityBuilder(modelBuilder.Entity<IndiceSeguimiento>());
-            MedicoEntityConfig.SetEntityBuilder(modelBuilder.Entity<Medico>());
             MedicosEspecialidadeEntityConfig.SetEntityBuilder(modelBuilder.Entity<MedicosEspecialidade>());
             SeguimientoPacienteEntityConfig.SetEntityBuilder(modelBuilder.Entity<SeguimientoPaciente>());
 

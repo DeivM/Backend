@@ -64,7 +64,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                 EspId = x.EspId,
                 MedId = x.MedId,
                 MesEstado = x.MesEstado,
-                MedNombres=x.Med.MedNombres+" "+ x.Med.MedApellidos,
+                MedNombres=x.Usu.UsuNombres+" "+ x.Usu.UsuApellidos,
                 EspNombre=x.Esp.EspNombre
             });
 

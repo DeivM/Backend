@@ -24,7 +24,6 @@ namespace Proyecto.Api.DataAccess.Contracts
         DbSet<Especialidade> Especialidade { get; set; }
         DbSet<Horario> Horario { get; set; }
         DbSet<IndiceSeguimiento> IndiceSeguimiento { get; set; }
-        DbSet<Medico> Medico { get; set; }
         DbSet<MedicosEspecialidade> MedicosEspecialidade { get; set; }
         DbSet<SeguimientoPaciente> SeguimientoPaciente { get; set; }
 

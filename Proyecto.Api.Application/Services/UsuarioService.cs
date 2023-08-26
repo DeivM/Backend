@@ -106,6 +106,14 @@ namespace Proyecto.Api.Application.Services
         {
             return await _UsuarioRepository.GetList();
         }
+
+        public async Task<List<ListModel>> GetList(long id)
+        {
+            return await _UsuarioRepository.GetList(id);
+        }
+
+
+
         /// <summary>
         /// registra y genera el token
         /// </summary>

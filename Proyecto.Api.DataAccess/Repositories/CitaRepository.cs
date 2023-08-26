@@ -67,8 +67,11 @@ namespace Proyecto.Api.DataAccess.Repositories
                     CitEstadoPaciente = x.CitEstadoPaciente,
                     CitObservaciones = x.CitObservaciones,
                     CitEstado = x.CitEstado,
-                    UsuId = x.UsuId
-                    
+                    UsuId = x.UsuId,
+                    MedNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
+                    UsuNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
+                    EspNombre = x.Mes.Esp.EspNombre
+
                 }).FirstOrDefaultAsync();
         }
 
@@ -92,7 +95,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                 CitObservaciones = x.CitObservaciones,
                 CitEstado = x.CitEstado,
                 UsuId = x.UsuId,
-                MedNombres = x.Mes.Med.MedNombres + x.Mes.Med.MedApellidos,
+                MedNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
                 UsuNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
                 EspNombre = x.Mes.Esp.EspNombre  
 
@@ -144,7 +147,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                 CitObservaciones = x.CitObservaciones,
                 CitEstado = x.CitEstado,
                 UsuId = x.UsuId,
-                MedNombres = x.Mes.Med.MedNombres + x.Mes.Med.MedApellidos,
+                MedNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
                 UsuNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
                 EspNombre = x.Mes.Esp.EspNombre
 
