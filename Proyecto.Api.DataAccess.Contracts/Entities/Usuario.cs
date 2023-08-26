@@ -26,10 +26,6 @@ namespace Proyecto.Api.DataAccess.Contracts.Entities
 
         public virtual ICollection<IndiceSeguimiento> IndiceSeguimientos { get; set; }
         public virtual ICollection<SeguimientoPaciente> SeguimientoPacientes { get; set; }
-        public virtual ICollection<Medico> Medicos { get; set; }
-
-
-
         public virtual ICollection<Horario> Horarios { get; set; }
         public virtual ICollection<MedicosEspecialidade> MedicosEspecialidades { get; set; }
 

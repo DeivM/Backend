@@ -110,22 +110,7 @@ namespace Proyecto.Api.Application.Services
         public async Task<List<ListModel>> GetListById(int id)
         {
             return await _UsuarioRepository.GetListById(id);
-    }
-
-
-
-    /// <summary>
-    /// registra y genera el token
-    /// </summary>
-    /// <param name="data"></param>
-    /// <returns></returns>
-    public async Task<Token> login(UsuarioRequest data)
-
-        public async Task<List<ListModel>> GetList(long id)
-        {
-            return await _UsuarioRepository.GetList(id);
         }
-
 
 
         /// <summary>
@@ -185,5 +170,9 @@ namespace Proyecto.Api.Application.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        public Task<List<ListModel>> GetList(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
