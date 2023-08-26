@@ -10,7 +10,8 @@ using Proyecto.Api.DataAccess.Contracts.Repositories;
 using Proyecto.Api.Business.Request;
 using Proyecto.Api.DataAccess.Contracts.Entities;
 using Microsoft.Extensions.Configuration;
-
+using System.Net.Mail;
+using System.Net;
 
 namespace Proyecto.Api.Application.Services
 {
@@ -119,6 +120,10 @@ namespace Proyecto.Api.Application.Services
 
        private async void enviarMensajeWhatsApp(long id, long citId)
         {
+            try
+            {
+
+           
             var usuario = await _usuarioService.Get(id);
             var cita = await _CitaRepository.Get(citId);
             string cuerpo=string.Empty;
@@ -132,10 +137,29 @@ namespace Proyecto.Api.Application.Services
                   +"Fecha "+cita.CitFechaAtencion.Value.ToShortDateString()+"\n\n"
                   +"Hora "+cita.CitInicioAtencion.Value.ToString() +"\n\n"
                 ;
-            var accountSid = "";
-            var authToke="";
 
+            string fromEmail = "david.saludspc@gmial.com";
+            string fromPassWord = "tqqbliwqdjtgjhow";
+            MailMessage message = new MailMessage();
+            message.From=new MailAddress(fromEmail);
+            message.Subject = "Cita Asignada";
 
+            message.To.Add(new MailAddress(usuario.UsuEmail));
+            message.Body = cuerpo;
+            message.IsBodyHtml = true;
+            var smtClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port=587,
+                Credentials=new NetworkCredential(fromEmail, fromPassWord),
+                EnableSsl=true
+            };
+            smtClient.Send(message);
+            }
+            catch (Exception)
+            {
+
+               
+            }
 
         }
 
