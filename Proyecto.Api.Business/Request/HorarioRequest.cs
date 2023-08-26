@@ -8,7 +8,7 @@ namespace Proyecto.Api.Business.Request
     public partial class HorarioRequest
     {
         public long HorId { get; set; }
-        public long? MedId { get; set; }
+        public long? UsuId { get; set; }
         public DateTime? HorFechaAtencion { get; set; }
         public TimeSpan? HorInicioAtencion { get; set; }
         public TimeSpan? HorFinAtencion { get; set; }

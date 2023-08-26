@@ -43,7 +43,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                 .Select(x => new HorarioModel
                 {
                     HorId = x.HorId,
-                    MedId = x.MedId,
+                    UsuId = x.UsuId,
                     HorFechaAtencion = x.HorFechaAtencion,
                     HorInicioAtencion = x.HorInicioAtencion,
                     HorFinAtencion = x.HorFinAtencion,
@@ -63,7 +63,7 @@ namespace Proyecto.Api.DataAccess.Repositories
             var query = _controlHorarioContext.Horario.Select(x => new HorarioModel()
             {
                 HorId = x.HorId,
-                MedId = x.MedId,
+                UsuId = x.UsuId,
                 HorFechaAtencion = x.HorFechaAtencion,
                 HorInicioAtencion = x.HorInicioAtencion,
                 HorFinAtencion = x.HorFinAtencion,

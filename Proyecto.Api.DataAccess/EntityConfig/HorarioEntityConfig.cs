@@ -27,11 +27,11 @@ namespace Proyecto.Api.DataAccess.EntityConfig
 
             entity.Property(e => e.HorInicioAtencion).HasColumnName("hor_inicio_atencion");
 
-            entity.Property(e => e.MedId).HasColumnName("med_id");
+            entity.Property(e => e.UsuId).HasColumnName("med_id");
 
             entity.HasOne(d => d.Usu)
                 .WithMany(p => p.Horarios)
-                .HasForeignKey(d => d.MedId)
+                .HasForeignKey(d => d.UsuId)
                 .HasConstraintName("FK_horarios_medicos");
         }
     }

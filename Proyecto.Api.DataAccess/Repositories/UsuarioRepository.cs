@@ -180,7 +180,7 @@ namespace Proyecto.Api.DataAccess.Repositories
             //if (entity.PerId==2)
             //{
             //    var medico = new Usuario();
-            //    medico.MedId = entity.UsuId;
+            //    medico.UsuId = entity.UsuId;
             //    medico.MedNombres = entity.UsuNombres;
             //    medico.MedApellidos = entity.UsuApellidos;
             //    medico.MedCedula = entity.UsuCedula;

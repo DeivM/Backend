@@ -44,7 +44,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                 {
                     MesId = x.MesId,
                     EspId = x.EspId,
-                    MedId = x.MedId,
+                    UsuId = x.UsuId,
                     MesEstado = x.MesEstado
                 }).FirstOrDefaultAsync();
         }
@@ -62,7 +62,7 @@ namespace Proyecto.Api.DataAccess.Repositories
             {
                 MesId = x.MesId,
                 EspId = x.EspId,
-                MedId = x.MedId,
+                UsuId = x.UsuId,
                 MesEstado = x.MesEstado,
                 MedNombres=x.Usu.UsuNombres+" "+ x.Usu.UsuApellidos,
                 EspNombre=x.Esp.EspNombre

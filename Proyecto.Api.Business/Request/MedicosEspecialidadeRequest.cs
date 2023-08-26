@@ -9,7 +9,7 @@ namespace Proyecto.Api.Business.Request
     {
         public long MesId { get; set; }
         public long? EspId { get; set; }
-        public long? MedId { get; set; }
+        public long? UsuId { get; set; }
         public short? MesEstado { get; set; }
 
     }

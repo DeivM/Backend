@@ -8,7 +8,7 @@ namespace Proyecto.Api.Business.Request
     public partial class MedicoRequest
     {
       
-        public long MedId { get; set; }
+        public long UsuId { get; set; }
         public string MedNombres { get; set; }
         public string MedApellidos { get; set; }
         public string MedCedula { get; set; }

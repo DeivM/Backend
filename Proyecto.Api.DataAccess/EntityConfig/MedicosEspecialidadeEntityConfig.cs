@@ -19,7 +19,7 @@ namespace Proyecto.Api.DataAccess.EntityConfig
 
             entity.Property(e => e.EspId).HasColumnName("esp_id");
 
-            entity.Property(e => e.MedId).HasColumnName("med_id");
+            entity.Property(e => e.UsuId).HasColumnName("med_id");
 
             entity.Property(e => e.MesEstado).HasColumnName("mes_estado");
 
@@ -30,7 +30,7 @@ namespace Proyecto.Api.DataAccess.EntityConfig
 
             entity.HasOne(d => d.Usu)
                 .WithMany(p => p.MedicosEspecialidades)
-                .HasForeignKey(d => d.MedId)
+                .HasForeignKey(d => d.UsuId)
                 .HasConstraintName("FK_medicos_especialidades_medicos");
         }
     }

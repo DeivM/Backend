@@ -9,7 +9,7 @@ namespace Proyecto.Api.DataAccess.Contracts.Entities
     {
         public long MesId { get; set; }
         public long? EspId { get; set; }
-        public long? MedId { get; set; }
+        public long? UsuId { get; set; }
         public short? MesEstado { get; set; }
 
         public virtual ICollection<Cita> Cita { get; set; }
