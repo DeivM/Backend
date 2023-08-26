@@ -27,5 +27,7 @@ namespace Proyecto.Api.DataAccess.Contracts.Repositories
         /// <returns></returns>
         Task<bool> Exist(long id, string email);
         Task<List<ListModel>> GetList();
+        //Lista los datos para mostrar en un select
+         Task<List<ListModel>> GetListById(int id);
     }
 }

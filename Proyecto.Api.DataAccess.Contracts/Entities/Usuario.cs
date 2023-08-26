@@ -26,5 +26,8 @@ namespace Proyecto.Api.DataAccess.Contracts.Entities
 
         public virtual ICollection<IndiceSeguimiento> IndiceSeguimientos { get; set; }
         public virtual ICollection<SeguimientoPaciente> SeguimientoPacientes { get; set; }
+        public virtual ICollection<Medico> Medicos { get; set; }
+
+
     }
 }
