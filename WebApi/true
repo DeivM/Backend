@@ -433,6 +433,12 @@
             </summary>
             <param name="id">id del dato que desea obtener</param>
         </member>
+        <member name="M:WebApi.Controllers.UsuarioController.GetList(System.Int64)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
         <member name="M:WebApi.Controllers.UsuarioController.Post(Proyecto.Api.Business.Request.UsuarioRequest)">
             <summary>
             api para crear un nuevo registro y retorna su identificador

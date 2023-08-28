@@ -19,7 +19,7 @@ namespace Proyecto.Api.DataAccess.EntityConfig
 
             entity.Property(e => e.EspId).HasColumnName("esp_id");
 
-            entity.Property(e => e.UsuId).HasColumnName("med_id");
+            entity.Property(e => e.UsuId).HasColumnName("usu_id");
 
             entity.Property(e => e.MesEstado).HasColumnName("mes_estado");
 

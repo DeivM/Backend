@@ -25,6 +25,8 @@ namespace Proyecto.Api.Application.Contracts.Services
 
         Task<List<ListModel>> GetList();
         Task<List<ListModel>> GetListById(int id);
+      
+        Task<List<ListModel>> GetList(int id);
         Task<List<ListModel>> GetList(long id);
 
     }

@@ -94,7 +94,7 @@ namespace Proyecto.Api.Application.Services
             
             var id = await _CitaRepository.Add(_mapper.Map<Cita>(data));
 
-            enviarMensajeWhatsApp(data.UsuId.Value, id);
+          await  enviarMensajeWhatsApp(data.UsuId.Value, id);
 
             return id;
         }
@@ -118,7 +118,7 @@ namespace Proyecto.Api.Application.Services
 
         }
 
-       private async void enviarMensajeWhatsApp(long id, long citId)
+       private async Task<int> enviarMensajeWhatsApp(long id, long citId)
         {
             try
             {
@@ -138,7 +138,7 @@ namespace Proyecto.Api.Application.Services
                   +"Hora "+cita.CitInicioAtencion.Value.ToString() +"\n\n"
                 ;
 
-            string fromEmail = "david.saludspc@gmial.com";
+            string fromEmail = "david.saludspc@gmail.com";
             string fromPassWord = "tqqbliwqdjtgjhow";
             MailMessage message = new MailMessage();
             message.From=new MailAddress(fromEmail);
@@ -151,16 +151,18 @@ namespace Proyecto.Api.Application.Services
             {
                 Port=587,
                 Credentials=new NetworkCredential(fromEmail, fromPassWord),
-                EnableSsl=true
+                EnableSsl=true,
+               UseDefaultCredentials = false
             };
             smtClient.Send(message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                var a = "";
                
             }
 
+            return 1;
         }
 
 

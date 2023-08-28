@@ -166,7 +166,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                 .Select(x => new ListModel
                 {
                     id = x.MesId,
-                    Nombre = x.Usu.UsuNombres + x.Usu.UsuNombres
+                    Nombre = x.Usu.UsuNombres +" "+ x.Usu.UsuApellidos
                 }).ToListAsync();
         }
 

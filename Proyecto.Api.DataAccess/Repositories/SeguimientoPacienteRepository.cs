@@ -65,10 +65,16 @@ namespace Proyecto.Api.DataAccess.Repositories
             {
                 SepId = x.SepId,
                 CasId = x.CasId,
+                CasNombre = x.Cas.CasNombre,
+                paciente = x.Usu.UsuNombres + " " + x.Usu.UsuApellidos,
+                medico = x.Cit.Mes.Usu.UsuNombres + " " + x.Usu.UsuApellidos,
+                Finalizar = x.SepFinalizar ? "Paciente Necesita cita médica" : "Estado de salud estable",
                 SepObservacion = x.SepObservacion,
                 SepFinalizar = x.SepFinalizar,
-                UsuId = x.UsuId
-            });
+                estadoSiNo = (x.SepFinalizar==true? "Si":"No"),
+                UsuId = x.UsuId,
+                Especialidad=x.Cit.Mes.Esp.EspNombre
+            }); ;
 
             //buscar por texto
             if (searchText != null && searchText.Length > 0)

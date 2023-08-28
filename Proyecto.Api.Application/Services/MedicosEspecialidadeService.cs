@@ -68,7 +68,7 @@ namespace Proyecto.Api.Application.Services
             {
                 data.Data = await Get(id);
             }
-            data.Medicos = await _medicoService.GetList();
+            data.Medicos = await _medicoService.GetListById(2);
             data.MedicosEspecialidad = await _especialidadService.GetList();
             return data;
         }

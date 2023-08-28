@@ -17,6 +17,13 @@ namespace Proyecto.Api.Business.Models
 
         public string CasNombre { get; set; }
 
+        public string paciente { get; set; }
+
+        public string medico { get; set; }
+
+        public string  Finalizar { get; set; }
+        public string Especialidad { get; set; }
+        public string estadoSiNo { get; set; }
 
     }
 }

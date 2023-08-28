@@ -95,8 +95,8 @@ namespace Proyecto.Api.DataAccess.Repositories
                 CitObservaciones = x.CitObservaciones,
                 CitEstado = x.CitEstado,
                 UsuId = x.UsuId,
-                MedNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
-                UsuNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
+                MedNombres = x.Mes.Usu.UsuNombres +" "+ x.Mes.Usu.UsuApellidos,
+                UsuNombres = x.Usu.UsuNombres +" "+ x.Usu.UsuApellidos,
                 EspNombre = x.Mes.Esp.EspNombre  
 
             });
@@ -113,7 +113,9 @@ namespace Proyecto.Api.DataAccess.Repositories
             }
             if (perId==2)
             {
-                query = query.Where(x =>x.UsuId==usuId);
+                var medicosspecilaes = await _controlHorarioContext.MedicosEspecialidade.Where(x => x.UsuId == usuId).Select(x => x.MesId).FirstOrDefaultAsync();
+
+                query = query.Where(x =>x.MesId== medicosspecilaes);
             }
 
 
