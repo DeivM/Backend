@@ -127,7 +127,18 @@ namespace Proyecto.Api.Application.Services
             var usuario = await _usuarioService.Get(id);
             var cita = await _CitaRepository.Get(citId);
             string cuerpo=string.Empty;
-            cuerpo = "hola "+usuario.UsuNombres +" "+usuario.UsuApellidos
+                cuerpo = "<h3 style=\"color: #3f7320; text-align: left;\">" +
+                        "Hola,"+usuario.UsuNombres + " " + usuario.UsuApellidos + "Reciba un cordial saludo de quienes conformamos SALUDSPC" +
+                        "</h3>\r\n<p>Le informamos que usted tiene una cita con la siguiente información" +
+                        "</p>\r\n<p>Especialidad: <strong>" + cita.EspNombre + "</strong></p>" +
+                        "\r\n<p>Médico: <strong>" + cita.MedNombres + "</strong></p>" +
+                        "\r\n<p>Fecha: <strong>" + cita.CitFechaAtencion.Value.ToShortDateString() + "</strong></p>" +
+                        "</p>\r\n<p>Hora: <strong>" + cita.CitInicioAtencion.Value.ToString() + "</strong></p>" +
+                        "</p>\r\n<p></p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Revisa saludspc&nbsp;para mas información.</p>";
+
+
+
+                   /* "hola " +usuario.UsuNombres +" "+usuario.UsuApellidos
                 +   " Reciba un cordial saludo de quienes conformamos SALUDSPC"
                 +"\n\n"
                 +"Le informamos que usted tiene uan cita con la siguiente información"
@@ -135,7 +146,7 @@ namespace Proyecto.Api.Application.Services
                   +"Especialidad "+cita.EspNombre +"\n\n"
                   +"Médico "+cita.MedNombres +"\n\n"
                   +"Fecha "+cita.CitFechaAtencion.Value.ToShortDateString()+"\n\n"
-                  +"Hora "+cita.CitInicioAtencion.Value.ToString() +"\n\n"
+                  +"Hora "+cita.CitInicioAtencion.Value.ToString() +"\n\n"*/
                 ;
 
             string fromEmail = "david.saludspc@gmail.com";
