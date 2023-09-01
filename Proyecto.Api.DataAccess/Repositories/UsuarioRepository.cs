@@ -31,6 +31,8 @@ namespace Proyecto.Api.DataAccess.Repositories
             return result > 0;
         }
 
+
+
         //Valida si existe datos por nombre
         public async Task<bool> Exist(string nombre)
         {
@@ -84,8 +86,8 @@ namespace Proyecto.Api.DataAccess.Repositories
                     UsuDireccion=x.UsuDireccion,
                     UsuTelefono=x.UsuTelefono,
                     UsuSexo=x.UsuSexo,
-                    UsuFechaNacimiento=x.UsuFechaNacimiento
-
+                    UsuFechaNacimiento=x.UsuFechaNacimiento,
+                    UsuImagen =x.UsuImagen,
                 }).FirstOrDefaultAsync();
         }
 
@@ -111,7 +113,8 @@ namespace Proyecto.Api.DataAccess.Repositories
                 UsuDireccion = x.UsuDireccion,
                 UsuTelefono = x.UsuTelefono,
                 UsuSexo = x.UsuSexo,
-                UsuFechaNacimiento = x.UsuFechaNacimiento
+                UsuFechaNacimiento = x.UsuFechaNacimiento,
+                UsuImagen = x.UsuImagen,
 
             });
             //buscar por texto
@@ -123,6 +126,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                  || x.UsuDireccion.Contains(searchText)
                  || x.UsuCedula.Contains(searchText)
                  || x.UsuSexo.Contains(searchText)
+                 || x.PerNombre.Contains(searchText)
                 );
             }
             // total de items
@@ -210,6 +214,7 @@ namespace Proyecto.Api.DataAccess.Repositories
             _controlHorarioContext.Entry(entity).Property("UsuTelefono").IsModified = true;
             _controlHorarioContext.Entry(entity).Property("UsuSexo").IsModified = true;
             _controlHorarioContext.Entry(entity).Property("UsuFechaNacimiento").IsModified = true;
+            _controlHorarioContext.Entry(entity).Property("UsuImagen").IsModified = true;
             _controlHorarioContext.Entry(entity).Property("PerId").IsModified = true;
 
             await _controlHorarioContext.SaveChangesAsync();
@@ -251,5 +256,54 @@ namespace Proyecto.Api.DataAccess.Repositories
                 }
             }
         }
+
+        public async Task<long> UpdatePassword(Usuario entity)
+        {
+            try
+            {
+                _controlHorarioContext.Entry(entity);
+                _controlHorarioContext.Entry(entity).Property("UsuPassword").IsModified = true;
+                await _controlHorarioContext.SaveChangesAsync();
+                return entity.UsuId;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+
+        public async Task<Usuario> getEmail(string email)
+        {
+            try
+            {
+                return await _controlHorarioContext.Usuario
+                .Where(x => x.UsuEmail.ToUpper() == email.ToUpper() )
+                .Select(x =>
+                new Usuario
+                {
+                    UsuId = x.UsuId,
+                    UsuEmail = email,
+                    UsuNombres = x.UsuNombres,
+
+                    UsuPassword = x.UsuPassword,
+                    UsuApellidos = x.UsuApellidos,
+        
+                    UsuEstado = x.UsuEstado,
+                    UsuCedula = x.UsuCedula,
+                    UsuDireccion = x.UsuDireccion,
+                    UsuTelefono = x.UsuTelefono,
+                    UsuSexo = x.UsuSexo,
+                    UsuFechaNacimiento = x.UsuFechaNacimiento,
+
+                }).FirstOrDefaultAsync();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
     }
 }

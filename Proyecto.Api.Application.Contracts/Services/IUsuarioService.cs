@@ -28,6 +28,7 @@ namespace Proyecto.Api.Application.Contracts.Services
       
         Task<List<ListModel>> GetList(int id);
         Task<List<ListModel>> GetList(long id);
+        Task<long> UpdatePassword(string email);
 
     }
 }

@@ -21,6 +21,7 @@ namespace Proyecto.Api.Business.Models
         public string UsuNombres { get; set; }
         public string EspNombre { get; set; }
         public long PerId { get; set; }
+        public string UsuImagen { get; set; }
 
     }
 }

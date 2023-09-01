@@ -68,6 +68,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                     CitObservaciones = x.CitObservaciones,
                     CitEstado = x.CitEstado,
                     UsuId = x.UsuId,
+                    UsuImagen = x.Usu.UsuImagen,
                     MedNombres = x.Mes.Usu.UsuNombres + x.Mes.Usu.UsuApellidos,
                     UsuNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
                     EspNombre = x.Mes.Esp.EspNombre
@@ -95,6 +96,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                 CitObservaciones = x.CitObservaciones,
                 CitEstado = x.CitEstado,
                 UsuId = x.UsuId,
+                UsuImagen = x.Usu.UsuImagen,
                 MedNombres = x.Mes.Usu.UsuNombres +" "+ x.Mes.Usu.UsuApellidos,
                 UsuNombres = x.Usu.UsuNombres +" "+ x.Usu.UsuApellidos,
                 EspNombre = x.Mes.Esp.EspNombre  
@@ -109,6 +111,8 @@ namespace Proyecto.Api.DataAccess.Repositories
                       || x.CitObservaciones.Contains(searchText)
                       || x.MedNombres.Contains(searchText)
                       || x.UsuNombres.Contains(searchText)
+                      || x.EspNombre.Contains(searchText)
+
                 );
             }
             if (perId==2)
@@ -149,6 +153,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                 CitObservaciones = x.CitObservaciones,
                 CitEstado = x.CitEstado,
                 UsuId = x.UsuId,
+                UsuImagen = x.Usu.UsuImagen,
                 MedNombres = x.Mes.Usu.UsuNombres + x.Mes.Usu.UsuApellidos,
                 UsuNombres = x.Usu.UsuNombres + x.Usu.UsuApellidos,
                 EspNombre = x.Mes.Esp.EspNombre
