@@ -143,7 +143,7 @@ namespace Proyecto.Api.DataAccess.Repositories
         public async Task<List<CitaModel>> GetAllById(int id)
         {
 
-            var query = _controlHorarioContext.Cita.Where(x=>x.UsuId==id).OrderByDescending(x=>x.CitFechaAtencion.Value.Date).Select(x => new CitaModel()
+            var query = _controlHorarioContext.Cita.Where(x=>x.UsuId==id && x.CitEstado==1).OrderByDescending(x=>x.CitFechaAtencion.Value.Date).Select(x => new CitaModel()
             {
                 CitId = x.CitId,
                 MesId = x.MesId,
