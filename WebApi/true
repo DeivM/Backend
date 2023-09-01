@@ -71,6 +71,13 @@
             <param name="data">Datos del nuevo registro</param>
             <remarks>api para crear un nuevo data</remarks>
         </member>
+        <member name="M:WebApi.Controllers.CitaController.PostList(System.Collections.Generic.List{Proyecto.Api.Business.Request.CitaRequest})">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
         <member name="M:WebApi.Controllers.CitaController.Update(System.Int32,Proyecto.Api.Business.Request.CitaRequest)">
             <summary>
             api para editar un data por su id

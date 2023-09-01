@@ -22,6 +22,7 @@ namespace Proyecto.Api.Application.Contracts.Services
         Task<long> Update(CitaRequest data);
         Task<long> Delete(List<long> ids);
         Task<List<CitaModel>> GetAllById(int id);
+        Task<long> Update(List<CitaRequest> entity);
 
     }
 }
