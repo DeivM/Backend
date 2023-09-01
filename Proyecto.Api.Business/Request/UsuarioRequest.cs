@@ -16,6 +16,7 @@ namespace Proyecto.Api.Business.Request
         public string UsuTelefono { get; set; }
         public string UsuSexo { get; set; }
         public DateTime? UsuFechaNacimiento { get; set; }
+        public string UsuImagen { get; set; }
         public long? PerId { get; set; }
     }
 }

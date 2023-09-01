@@ -139,6 +139,24 @@ namespace WebApi.Controllers
             return Ok(resultado);
         }
 
+
+        [ProducesResponseType(200)]//Proceso exitoso
+        [ProducesResponseType(400)]//Error en la Data enviados
+        [ProducesResponseType(401)]//Token inválido
+        [ProducesResponseType(404)]//Datos no encontrado
+        [ProducesResponseType(500)]//Error del servido servidor
+        [ResponseType(typeof(RespuestaModel<object>))]
+        [HttpPut]
+        [Route("UpdatePassword")]
+        public async Task<IActionResult> UpdatePassword(UsuarioRequest data)
+        {
+            var resultado = new RespuestaModel<long?>
+            {
+                Data = await _UsuarioService.UpdatePassword(data.UsuEmail)
+            };
+            return Ok(resultado);
+        }
+
         /// <summary>
         /// api para crear un nuevo registro y retorna su identificador
         /// </summary>

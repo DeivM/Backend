@@ -19,6 +19,7 @@ namespace Proyecto.Api.DataAccess.Contracts.Entities
         public string UsuTelefono { get; set; }
         public string UsuSexo { get; set; }
         public DateTime? UsuFechaNacimiento { get; set; }
+        public string UsuImagen { get; set; }
 
         public virtual Perfil Per { get; set; }
 

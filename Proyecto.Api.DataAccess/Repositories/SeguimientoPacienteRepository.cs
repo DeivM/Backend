@@ -81,7 +81,10 @@ namespace Proyecto.Api.DataAccess.Repositories
             {
                 query = query.Where(x =>
                       x.SepObservacion.Contains(searchText)
-                      
+                      || x.CasNombre.Contains(searchText)
+                      || x.paciente.Contains(searchText)
+                      || x.medico.Contains(searchText)
+
                 );
             }
             // total de items

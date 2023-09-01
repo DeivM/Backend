@@ -72,6 +72,7 @@ namespace Proyecto.Api.DataAccess.Repositories
             {
                 query = query.Where(x =>
                       x.CasNombre.Contains(searchText)
+                      || x.EspNombre.Contains(searchText)
                 );
             }
             // total de items

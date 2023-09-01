@@ -11,6 +11,7 @@ namespace Proyecto.Api.DataAccess.Mappers
         {
       
             CreateMap<UsuarioRequest, Usuario>();
+            CreateMap<Usuario, UsuarioRequest>();
             CreateMap<PerfilRequest, Perfil>();
             CreateMap<PerfilRequest, Perfil>();
             CreateMap<MenuPerfilRequest, MenuPerfil>();

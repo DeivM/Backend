@@ -63,6 +63,11 @@ namespace Proyecto.Api.DataAccess.EntityConfig
               .HasColumnType("date")
               .HasColumnName("usu_fecha_nacimiento");
 
+            entity.Property(e => e.UsuImagen)
+                .HasMaxLength(500)
+                .IsUnicode(false)
+                .HasColumnName("usu_imagen");
+
             entity.HasOne(d => d.Per)
                 .WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.PerId)

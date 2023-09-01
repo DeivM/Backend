@@ -15,7 +15,8 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Proyecto.Api.Business.Models.List;
-
+using System.Net.Mail;
+using System.Net;
 
 namespace Proyecto.Api.Application.Services
 {
@@ -77,6 +78,35 @@ namespace Proyecto.Api.Application.Services
                 data.Data = await Get(id);
             }
             return data;
+        }
+
+    
+        public async Task<long> UpdatePassword(string email)
+        {
+            var entityUser = await _UsuarioRepository.getEmail(email);
+            if (entityUser != null)
+            {
+                var resultadousuario = _mapper.Map<UsuarioRequest>(entityUser);
+                //OBTENEMOS LOS DATOS DE CORREO
+                //guardamos el id de usuario para actualziar la contrase
+                resultadousuario.UsuId = resultadousuario.UsuId;
+                //OBTEMOS LA CONTRASEÑA AUTOMATICA
+
+                entityUser.UsuPassword = recuperarContrasena();
+
+                resultadousuario.UsuPassword= EncriptPassword.HashPassword(entityUser.UsuPassword);
+
+                await enviarMensajeWhatsApp(entityUser);
+                var resultado = _mapper.Map<Usuario>(resultadousuario);
+
+                await _UsuarioRepository.UpdatePassword(resultado);
+                return 1;
+
+            }
+            else
+            {
+                throw new Exception("No existe correo electrnico");
+            }
         }
 
         //envia la informacion al repositorio para ingresar y regresa un long como exito
@@ -180,6 +210,71 @@ namespace Proyecto.Api.Application.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-     
+        public string recuperarContrasena()
+        {
+            // EnviarCorreo en = new EnviarCorreo();
+            EncriptPassword encriptPassword = new EncriptPassword();
+            Random obj = new Random();// genera una nueva contraseña
+            string posibles = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            int longitud = posibles.Length;
+            char letra;
+            int longitudnuevacadena = 5;
+            string nuevacadena = "";
+            for (int i = 0; i < longitudnuevacadena; i++)
+            {
+                letra = posibles[obj.Next(longitud)];
+                nuevacadena += letra.ToString();
+            }
+            //usuario.USU_PASSWORD = nuevacadena;// crea mensaje para enviar por correo la nueva pass
+            // string mensaje = en.formato(usuario.USU_USUARIO, usuario.USU_EMAIL, usuario.USU_PASSWORD);
+            //string asunto = "BajoControl.com Recuperar Contraseña";
+            // en.enviarCorreos(usuario.USU_EMAIL, asunto, mensaje);
+            // string encry = encriptPassword.HashPassword(usuario.USU_PASSWORD);
+            return nuevacadena; //reemplaza la password por la nueva     
+        }
+
+
+        private async Task<int> enviarMensajeWhatsApp(Usuario usuario)
+        {
+            try
+            {
+
+
+                string cuerpo = string.Empty;
+                cuerpo = "<h3 style=\"color: #ff0000; text-align: left;\">" +
+                        "Estimado, " + usuario.UsuNombres + " " + usuario.UsuApellidos + " Reciba un cordial saludo de quienes conformamos SALUDSPC." +
+                        "</h3>\r\n<p>Esperamos que te encuentres bien. Si has olvidado tu contraseña para acceder a nuestro sistema de citas médicas, estamos aquí para ayudarte a recuperar el acceso a tu cuenta. " +
+                        "</p>\r\n<p>Está es tu nueva contraseña: <strong>" + usuario.UsuPassword + "</strong></p>" +
+                        "</p>\r\n<p></p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Revisa saludspc&nbsp;para mas información.</p>";
+
+
+
+                string fromEmail = "david.saludspc@gmail.com";
+                string fromPassWord = "tqqbliwqdjtgjhow";
+                MailMessage message = new MailMessage();
+                message.From = new MailAddress(fromEmail);
+                message.Subject = "Recuperación de Contraseña Salud SPC";
+
+                message.To.Add(new MailAddress(usuario.UsuEmail));
+                message.Body = cuerpo;
+                message.IsBodyHtml = true;
+                var smtClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential(fromEmail, fromPassWord),
+                    EnableSsl = true,
+                    UseDefaultCredentials = false
+                };
+                smtClient.Send(message);
+            }
+            catch (Exception ex)
+            {
+                var a = "";
+
+            }
+
+            return 1;
+        }
+
     }
 }

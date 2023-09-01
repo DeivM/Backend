@@ -18,6 +18,7 @@ namespace Proyecto.Api.Business.Models
         public string UsuTelefono { get; set; }
         public string UsuSexo { get; set; }
         public DateTime? UsuFechaNacimiento { get; set; }
+        public string UsuImagen { get; set; }
         public long? PerId { get; set; }
         public long EmpId { get; set; }
         public string PerNombre { get; set; }

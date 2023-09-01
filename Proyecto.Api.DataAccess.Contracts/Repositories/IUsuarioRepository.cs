@@ -30,5 +30,8 @@ namespace Proyecto.Api.DataAccess.Contracts.Repositories
         //Lista los datos para mostrar en un select
          Task<List<ListModel>> GetListById(int id);
         Task<List<ListModel>> GetList(long id);
+        Task<long> UpdatePassword(Usuario entity);
+
+        Task<Usuario> getEmail(string email);
     }
 }
