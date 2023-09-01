@@ -67,7 +67,7 @@ namespace Proyecto.Api.DataAccess.Repositories
                 CasId = x.CasId,
                 CasNombre = x.Cas.CasNombre,
                 paciente = x.Usu.UsuNombres + " " + x.Usu.UsuApellidos,
-                medico = x.Cit.Mes.Usu.UsuNombres + " " + x.Usu.UsuApellidos,
+                medico = x.Cit.Mes.Usu.UsuNombres + " " + x.Cit.Mes.Usu.UsuApellidos,
                 Finalizar = x.SepFinalizar ? "Paciente Necesita cita médica" : "Estado de salud estable",
                 SepObservacion = x.SepObservacion,
                 SepFinalizar = x.SepFinalizar,
