@@ -15,6 +15,8 @@ namespace Proyecto.Api.Business.Models
         public long? PerId { get; set; }
         public List<MenuUsuario> Menu { get; set; }
         public List<string> Paths { get; set; }
+        public string nombres { get; set; }
+
 
     }
 }
