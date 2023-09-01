@@ -5,6 +5,7 @@ using Proyecto.Api.DataAccess.Contracts.Repositories;
 using Proyecto.Api.Business.Models;
 using Proyecto.Api.Business.Models.List;
 using Proyecto.Api.DataAccess.Contracts.Entities;
+using System;
 
 namespace Proyecto.Api.DataAccess.Contracts.Repositories
 {
@@ -14,6 +15,7 @@ namespace Proyecto.Api.DataAccess.Contracts.Repositories
         Task<bool> Exist(string nombre);
         Task<HorarioModel> Get(long id);
         Task<ListadoPaginadoModel<HorarioModel>> GetAll(int quantity, int page, string orderBy, string orderType, string searchText);
-        Task<List<ListModel>> GetList();
+        //Lista los datos para mostrar en un select
+        Task<List<ListModel>> GetList(long id, DateTime fecha, TimeSpan hora);
     }
 }

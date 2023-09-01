@@ -9,6 +9,8 @@ using Proyecto.Api.Application.Contracts.Services;
 using Proyecto.Api.Business.Request;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using Proyecto.Api.Application.Services;
+using System;
 
 namespace WebApi.Controllers
 {
@@ -70,7 +72,29 @@ namespace WebApi.Controllers
             }
             return Ok(resultado);
         }
-      
+
+        /// <summary>
+        /// api para obtener todos los datos para el formulario 
+        /// </summary>
+        /// <param name="id">id del dato que desea obtener</param>
+        [ProducesResponseType(200)]//Proceso exitoso
+        [ProducesResponseType(400)]//Error en los Data enviados
+        [ProducesResponseType(401)]//Token inválido
+        [ProducesResponseType(404)]//Datos no encontrado
+        [ProducesResponseType(500)]//Error del servido servidor                         
+        [ResponseType(typeof(RespuestaModel<UsuarioData>))]
+        [HttpGet]
+        [Route("GetList")]
+
+        public async Task<IActionResult> GetList(long id, string id1, string id2)
+        {
+
+            var fechai = Convert.ToDateTime(id1);
+            var horai= Convert.ToDateTime(id2).TimeOfDay;
+            return Ok(await _HorarioService.GetList(id, fechai, horai));
+        }
+
+
 
         /// <summary>
         /// api para crear un nuevo registro y retorna su identificador

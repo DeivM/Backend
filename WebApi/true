@@ -147,6 +147,12 @@
             </summary>
             <param name="id">id del dato que desea obtener</param>
         </member>
+        <member name="M:WebApi.Controllers.HorarioController.GetList(System.Int64,System.String,System.String)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
         <member name="M:WebApi.Controllers.HorarioController.Post(Proyecto.Api.Business.Request.HorarioRequest)">
             <summary>
             api para crear un nuevo registro y retorna su identificador

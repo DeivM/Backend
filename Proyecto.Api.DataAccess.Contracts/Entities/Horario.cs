@@ -15,5 +15,6 @@ namespace Proyecto.Api.DataAccess.Contracts.Entities
         public short? HorEstado { get; set; }
 
         public virtual Usuario Usu { get; set; }
+        public virtual ICollection<Cita> Cita { get; set; }
     }
 }
