@@ -16,6 +16,7 @@ namespace Proyecto.Api.Business.Request
         public string CitObservaciones { get; set; }
         public short? CitEstado { get; set; }
         public long? UsuId { get; set; }
+        public long? HorId { get; set; }
 
     }
 }

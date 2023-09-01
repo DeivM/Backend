@@ -10,6 +10,7 @@ using Proyecto.Api.DataAccess.Contracts;
 using Proyecto.Api.DataAccess.Contracts.Repositories;
 using Proyecto.Api.DataAccess.Contracts.Entities;
 using Proyecto.Api.Business.Models.List;
+using Proyecto.Api.Business.Request;
 
 namespace Proyecto.Api.DataAccess.Repositories
 {
@@ -294,5 +295,43 @@ namespace Proyecto.Api.DataAccess.Repositories
                 }
             }
         }
+
+        //registra los datos a la base
+        public async Task<long> Update(List<CitaRequest> entity)
+        {
+            using (var tran = _controlHorarioContext.Database.BeginTransaction())
+            {
+                Cita cita = null;
+                try
+                {
+                    foreach (var item in entity)
+                    {
+                        cita = new Cita();
+
+                        cita.CitId = item.CitId;
+                        cita.MesId = item.MesId;
+                        cita.CitFechaAtencion = item.CitFechaAtencion;
+                        cita.CitInicioAtencion = item.CitInicioAtencion;
+                        cita.CitFinAtencion = item.CitFinAtencion;
+                        cita.CitEstadoPaciente = item.CitEstadoPaciente;
+                        cita.CitObservaciones = item.CitObservaciones;
+                        cita.CitEstado = item.CitEstado;
+                        cita.UsuId = item.UsuId;
+                        _controlHorarioContext.Cita.Update(cita);
+                    }
+                    await _controlHorarioContext.SaveChangesAsync();
+                    await tran.CommitAsync();
+                    return 1;
+                }
+                catch (Exception e)
+                {
+                    await tran.RollbackAsync();
+                    throw new Exception(e.Message);
+                }
+            }
+        }
+
+
+
     }
 }

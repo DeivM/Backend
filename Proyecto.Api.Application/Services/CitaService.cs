@@ -105,6 +105,12 @@ namespace Proyecto.Api.Application.Services
             return await _CitaRepository.Update(_mapper.Map<Cita>(data));
         }
 
+        public async Task<long> Update(List<CitaRequest> entity)
+        {
+           return await _CitaRepository.Update(entity);
+        }
+
+
         //envia la informacion al repositorio para eliminar y regresa un long como exito
         public async Task<long> Delete(List<long> ids)
         {

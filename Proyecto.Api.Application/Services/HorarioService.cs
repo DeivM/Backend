@@ -10,7 +10,7 @@ using Proyecto.Api.DataAccess.Contracts.Repositories;
 using Proyecto.Api.Business.Request;
 using Proyecto.Api.DataAccess.Contracts.Entities;
 using Microsoft.Extensions.Configuration;
-
+using Proyecto.Api.Business.Models.List;
 
 namespace Proyecto.Api.Application.Services
 {
@@ -41,6 +41,9 @@ namespace Proyecto.Api.Application.Services
             return await _HorarioRepository.Get(id);
         }
 
+
+
+
         //Retorna todos los datos que tiene la tabla, regresa siempre los 10 primeros, ordenados por id principal
         //quantity Fiitidad de datos que desea consultar
         //page numero de paginas
@@ -64,6 +67,14 @@ namespace Proyecto.Api.Application.Services
             }
             return data;
         }
+
+        //Lista los datos para mostrar en un select
+        public async Task<List<ListModel>> GetList(long id, DateTime fecha, TimeSpan hora)
+        {
+          return  await _HorarioRepository.GetList(id, fecha, hora);
+        }
+
+
 
         //envia la informacion al repositorio para ingresar y regresa un long como exito
         public async Task<long> Add(HorarioRequest data)

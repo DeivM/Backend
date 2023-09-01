@@ -87,10 +87,13 @@ namespace Proyecto.Api.DataAccess.Repositories
                 .ToListAsync();
             return result;
         }
+
         //Lista los datos para mostrar en un select
-        public async Task<List<ListModel>> GetList()
+        public async Task<List<ListModel>> GetList(long id, DateTime fecha, TimeSpan hora)
         {
-            return await _controlHorarioContext.Horario
+            return await _controlHorarioContext.Horario.Where(x=>x.UsuId==id && x.HorInicioAtencion.Value >= hora
+            && ! _controlHorarioContext.Cita
+            .Where(x=>x.UsuId==id && x.CitEstado==1 && x.CitFechaAtencion.Value.Date== fecha.Date).Select(x=>x.HorId).Contains(x.HorId))
                 .Select(x => new ListModel
                 {
                     id = x.HorId,

@@ -71,6 +71,13 @@
             <param name="data">Datos del nuevo registro</param>
             <remarks>api para crear un nuevo data</remarks>
         </member>
+        <member name="M:WebApi.Controllers.CitaController.PostList(System.Collections.Generic.List{Proyecto.Api.Business.Request.CitaRequest})">
+            <summary>
+            api para crear un nuevo registro y retorna su identificador
+            </summary>
+            <param name="data">Datos del nuevo registro</param>
+            <remarks>api para crear un nuevo data</remarks>
+        </member>
         <member name="M:WebApi.Controllers.CitaController.Update(System.Int32,Proyecto.Api.Business.Request.CitaRequest)">
             <summary>
             api para editar un data por su id
@@ -142,6 +149,12 @@
             <param name="search">filtra la búsqueda</param>
         </member>
         <member name="M:WebApi.Controllers.HorarioController.GetData(System.Int32)">
+            <summary>
+            api para obtener todos los datos para el formulario 
+            </summary>
+            <param name="id">id del dato que desea obtener</param>
+        </member>
+        <member name="M:WebApi.Controllers.HorarioController.GetList(System.Int64,System.String,System.String)">
             <summary>
             api para obtener todos los datos para el formulario 
             </summary>

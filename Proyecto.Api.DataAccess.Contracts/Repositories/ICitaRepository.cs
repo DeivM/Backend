@@ -6,6 +6,7 @@ using Proyecto.Api.Business.Models;
 using Proyecto.Api.Business.Models.List;
 using Proyecto.Api.DataAccess.Contracts.Entities;
 using System;
+using Proyecto.Api.Business.Request;
 
 namespace Proyecto.Api.DataAccess.Contracts.Repositories
 {
@@ -19,6 +20,8 @@ namespace Proyecto.Api.DataAccess.Contracts.Repositories
         //Valida si existe datos por id
         Task<bool> ValidarCitasHorario(long idMedico, DateTime fecha, TimeSpan horaInicio, TimeSpan horafin);
         Task<List<CitaModel>> GetAllById(int id);
+      Task<long> Update(List<CitaRequest> entity);
+
 
     }
 }

@@ -39,6 +39,7 @@ namespace Proyecto.Api.DataAccess.EntityConfig
             entity.Property(e => e.MesId).HasColumnName("mes_id");
 
             entity.Property(e => e.UsuId).HasColumnName("usu_id");
+            entity.Property(e => e.HorId).HasColumnName("hor_id");
 
             entity.HasOne(d => d.Mes)
                 .WithMany(p => p.Cita)
@@ -49,6 +50,10 @@ namespace Proyecto.Api.DataAccess.EntityConfig
                 .WithMany(p => p.Cita)
                 .HasForeignKey(d => d.UsuId)
                 .HasConstraintName("FK_citas_usuario");
+
+            entity.HasOne(d => d.Hor)
+               .WithMany(p => p.Cita)
+               .HasForeignKey(d => d.HorId);
         }
     }
 }

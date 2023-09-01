@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using System;
+using Proyecto.Api.Application.Services;
 
 namespace WebApi.Controllers
 {
@@ -116,6 +117,30 @@ namespace WebApi.Controllers
             };
             return Ok(resultado);
         }
+
+        /// <summary>
+        /// api para crear un nuevo registro y retorna su identificador
+        /// </summary>
+        /// <param name="data">Datos del nuevo registro</param>
+        /// <remarks>api para crear un nuevo data</remarks>
+        [ProducesResponseType(200)]//Proceso exitoso
+        [ProducesResponseType(400)]//Error en la Data enviados
+        [ProducesResponseType(401)]//Token inválido
+        [ProducesResponseType(404)]//Datos no encontrado
+        [ProducesResponseType(500)]//Error del servido servidor
+        [ResponseType(typeof(RespuestaModel<long?>))]
+        [HttpPost]
+        [Route("PostList")]
+        public async Task<IActionResult> PostList(List<CitaRequest> data)
+        {
+            var resultado = new RespuestaModel<long?>
+            {
+                Data = await _CitaService.Update(data)
+            };
+            return Ok(resultado);
+        }
+
+
 
 
         /// <summary>
