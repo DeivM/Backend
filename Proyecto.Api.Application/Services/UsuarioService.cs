@@ -179,6 +179,8 @@ namespace Proyecto.Api.Application.Services
             var menus = await _MenuService.GetMenuRol(usuarioEmail.PerId.Value);
             var dataToken = new Token();
             dataToken.UsuNombre = usuarioEmail.UsuNombres;
+            dataToken.nombres = usuarioEmail.UsuNombres+" "+ usuarioEmail.UsuApellidos;
+
             dataToken.UsuApellidos=usuarioEmail.UsuApellidos;
             dataToken.UsuId = usuarioEmail.UsuId;
             dataToken.PerId=usuarioEmail.PerId;

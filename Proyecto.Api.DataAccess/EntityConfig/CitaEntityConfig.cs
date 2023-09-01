@@ -20,7 +20,6 @@ namespace Proyecto.Api.DataAccess.EntityConfig
             entity.Property(e => e.CitEstado).HasColumnName("cit_estado");
 
             entity.Property(e => e.CitEstadoPaciente)
-                .HasMaxLength(25)
                 .IsUnicode(false)
                 .HasColumnName("cit_estado_paciente");
 
